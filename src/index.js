@@ -1,3 +1,3 @@
-import "dotenv/config.js"
+import 'dotenv/config.js';
 
-import "./server.js"
+import './server.js';
