@@ -5,6 +5,7 @@ import logger from '#config/logger.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import authRoutes from '#routes/auth.routes.js';
+import { securityMiddleware } from '#middleware/security.middleware.js';
 
 const app = express();
 
@@ -19,7 +20,7 @@ app.use(
 );
 app.use(cookieParser());
 app.use('/api/auth', authRoutes);
-
+app.use(securityMiddleware);
 app.get('/', (req, res) => {
   res.status(200).send('Hello from crowy');
 });
