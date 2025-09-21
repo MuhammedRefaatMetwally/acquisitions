@@ -2,7 +2,7 @@ import { signupSchema, signInSchema } from '#validations/auth.validation.js';
 import { formatValidationError } from '#utils/formate.js';
 import logger from '#config/logger.js';
 import { createUser, authenticateUser } from '#services/auth.services.js';
-import { jwtToken } from '#utils/jwt.js';
+import jwtToken from '#utils/jwt.js';
 import { cookies } from '#utils/cookies.js';
 
 export const signup = async (req, res, next) => {
@@ -20,7 +20,7 @@ export const signup = async (req, res, next) => {
 
     const user = await createUser({ name, email, password, role });
 
-    const token = jwttoken.sign({
+    const token = jwtToken.sign({
       id: user.id,
       email: user.email,
       role: user.role,

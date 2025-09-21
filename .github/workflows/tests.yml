@@ -85,7 +85,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "All tests completed successfully! 🎉" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           if [ "${{ steps.coverage.outputs.coverage_available }}" == "true" ]; then
             echo "### 📊 Coverage Report" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
@@ -97,7 +97,7 @@ jobs:
             echo "| Lines | ${{ steps.coverage.outputs.lines_pct }}% |" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           echo "### 📁 Artifacts" >> $GITHUB_STEP_SUMMARY
           echo "- Coverage reports uploaded and available for 30 days" >> $GITHUB_STEP_SUMMARY
           echo "- HTML coverage report included for detailed analysis" >> $GITHUB_STEP_SUMMARY
@@ -109,7 +109,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Some tests did not pass. Please review the test output above." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           if [ "${{ steps.coverage.outputs.coverage_available }}" == "true" ]; then
             echo "### 📊 Coverage Report" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
@@ -121,7 +121,7 @@ jobs:
             echo "| Lines | ${{ steps.coverage.outputs.lines_pct }}% |" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           echo "### 🔧 Next Steps" >> $GITHUB_STEP_SUMMARY
           echo "1. Review the failed tests in the logs above" >> $GITHUB_STEP_SUMMARY
           echo "2. Fix the failing tests locally" >> $GITHUB_STEP_SUMMARY

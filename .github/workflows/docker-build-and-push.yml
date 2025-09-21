@@ -13,7 +13,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: acquisitions
+  IMAGE_NAME: ${{secrets.DOCKER_USERNAME}}/kubernetes-demo-api
 
 jobs:
   docker:
@@ -84,7 +84,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### 🏷️ Available Tags" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           # Parse and display tags
           TAGS="${{ steps.meta.outputs.tags }}"
           echo "$TAGS" | while IFS= read -r tag; do
@@ -92,7 +92,7 @@ jobs:
               echo "- \`$tag\`" >> $GITHUB_STEP_SUMMARY
             fi
           done
-          
+
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### 🏗️ Build Information" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY

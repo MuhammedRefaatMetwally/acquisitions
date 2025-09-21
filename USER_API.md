@@ -5,6 +5,7 @@
 This API provides full CRUD (Create, Read, Update, Delete) operations for user management with role-based access control and proper authentication.
 
 ## Base URL
+
 ```
 /api/users
 ```
@@ -12,6 +13,7 @@ This API provides full CRUD (Create, Read, Update, Delete) operations for user m
 ## Authentication
 
 All endpoints require authentication via JWT token. The token can be provided in one of two ways:
+
 1. **HTTP-only Cookie**: `token` cookie (automatically set during login)
 2. **Authorization Header**: `Authorization: Bearer <token>`
 
@@ -23,6 +25,7 @@ All endpoints require authentication via JWT token. The token can be provided in
 ## Endpoints
 
 ### 1. Get All Users
+
 ```http
 GET /api/users
 ```
@@ -32,6 +35,7 @@ GET /api/users
 **Description**: Retrieves a list of all users in the system.
 
 **Response**:
+
 ```json
 {
   "message": "Successfully retrieved all users",
@@ -50,6 +54,7 @@ GET /api/users
 ```
 
 **Status Codes**:
+
 - `200`: Success
 - `401`: Unauthorized (no token provided)
 - `403`: Forbidden (not admin)
@@ -57,6 +62,7 @@ GET /api/users
 ---
 
 ### 2. Get User by ID
+
 ```http
 GET /api/users/:id
 ```
@@ -64,11 +70,13 @@ GET /api/users/:id
 **Authentication**: Required (Owner or Admin)
 
 **Parameters**:
+
 - `id` (path parameter): User ID (positive integer)
 
 **Description**: Retrieves a specific user by their ID. Users can only access their own profile unless they're an admin.
 
 **Response**:
+
 ```json
 {
   "message": "User retrieved successfully",
@@ -84,6 +92,7 @@ GET /api/users/:id
 ```
 
 **Status Codes**:
+
 - `200`: Success
 - `400`: Bad Request (invalid ID format)
 - `401`: Unauthorized (no token provided)
@@ -93,6 +102,7 @@ GET /api/users/:id
 ---
 
 ### 3. Update User
+
 ```http
 PUT /api/users/:id
 ```
@@ -100,9 +110,11 @@ PUT /api/users/:id
 **Authentication**: Required (Owner or Admin with restrictions)
 
 **Parameters**:
+
 - `id` (path parameter): User ID (positive integer)
 
 **Request Body** (all fields optional, at least one required):
+
 ```json
 {
   "name": "John Smith",
@@ -113,18 +125,21 @@ PUT /api/users/:id
 ```
 
 **Business Rules**:
+
 - Users can update their own profile (except role)
 - Only admins can change user roles
 - Users cannot change their own role (prevents privilege escalation)
 - Passwords are automatically hashed when updated
 
 **Validation**:
+
 - `name`: 2-255 characters, trimmed
 - `email`: Valid email format, lowercase, trimmed
 - `password`: 6-128 characters
 - `role`: Must be either "user" or "admin"
 
 **Response**:
+
 ```json
 {
   "message": "User updated successfully",
@@ -140,6 +155,7 @@ PUT /api/users/:id
 ```
 
 **Status Codes**:
+
 - `200`: Success
 - `400`: Bad Request (validation failed)
 - `401`: Unauthorized (no token provided)
@@ -149,6 +165,7 @@ PUT /api/users/:id
 ---
 
 ### 4. Delete User
+
 ```http
 DELETE /api/users/:id
 ```
@@ -156,15 +173,18 @@ DELETE /api/users/:id
 **Authentication**: Required (Admin only with self-deletion protection)
 
 **Parameters**:
+
 - `id` (path parameter): User ID (positive integer)
 
 **Description**: Deletes a user from the system.
 
 **Business Rules**:
+
 - Only admins can delete users
 - Admins cannot delete their own account (prevents system lockout)
 
 **Response**:
+
 ```json
 {
   "message": "User deleted successfully",
@@ -178,6 +198,7 @@ DELETE /api/users/:id
 ```
 
 **Status Codes**:
+
 - `200`: Success
 - `400`: Bad Request (invalid ID format)
 - `401`: Unauthorized (no token provided)
@@ -187,6 +208,7 @@ DELETE /api/users/:id
 ## Error Response Format
 
 All error responses follow this structure:
+
 ```json
 {
   "error": "Error Type",
@@ -198,6 +220,7 @@ All error responses follow this structure:
 ## Examples
 
 ### Update User Profile (Regular User)
+
 ```bash
 curl -X PUT http://localhost:3000/api/users/1 \
   -H "Authorization: Bearer your-jwt-token" \
@@ -209,6 +232,7 @@ curl -X PUT http://localhost:3000/api/users/1 \
 ```
 
 ### Change User Role (Admin Only)
+
 ```bash
 curl -X PUT http://localhost:3000/api/users/1 \
   -H "Authorization: Bearer admin-jwt-token" \
@@ -219,6 +243,7 @@ curl -X PUT http://localhost:3000/api/users/1 \
 ```
 
 ### Delete User (Admin Only)
+
 ```bash
 curl -X DELETE http://localhost:3000/api/users/1 \
   -H "Authorization: Bearer admin-jwt-token"
