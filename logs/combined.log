@@ -33,3 +33,51 @@
 {"level":"info","message":"::1 - - [21/Sep/2025:14:14:26 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquisitions-api"}
 {"level":"info","message":"::1 - - [21/Sep/2025:14:14:57 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquisitions-api"}
 {"level":"info","message":"::1 - - [21/Sep/2025:14:15:20 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:14:57:07 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [21/Sep/2025:14:57:10 +0000] \"GET / HTTP/1.1\" 200 16 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [21/Sep/2025:14:57:10 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:14:57:37 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquisitions-api"}
+{"ip":"::ffff:172.18.0.1","level":"warn","message":"Bot request blocked","path":"/","service":"acquisitions-api","userAgent":"PostmanRuntime/7.46.1"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:14:57:52 +0000] \"GET / HTTP/1.1\" 403 68 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:14:58:08 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:14:58:38 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquisitions-api"}
+{"ip":"::ffff:172.18.0.1","level":"warn","message":"Bot request blocked","path":"/sign-up","service":"acquisitions-api","userAgent":"PostmanRuntime/7.46.1"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:14:59:02 +0000] \"POST /sign-up HTTP/1.1\" 403 68 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:14:59:08 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:14:59:38 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:14:59:39 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 144 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:14:59:51 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 93 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:15:00:04 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 93 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:15:00:08 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:15:00:39 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:15:00:43 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 93 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:15:01:09 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:15:01:39 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:15:02:02 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 93 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:15:02:09 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:15:02:39 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:15:04:02 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"User created crowy@gmail.com","service":"acquisitions-api"}
+{"level":"error","message":"Signup error jwttoken is not defined","service":"acquisitions-api","stack":"ReferenceError: jwttoken is not defined\n    at signup (file:///app/src/controllers/auth.controller.js:23:19)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:15:04:05 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 500 343 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"error","message":"Error creating account credentials: Error: User with this email already exists","service":"acquisitions-api"}
+{"level":"error","message":"Signup error User with this email already exists","service":"acquisitions-api","stack":"Error: User with this email already exists\n    at createUser (file:///app/src/services/auth.services.js:64:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async signup (file:///app/src/controllers/auth.controller.js:21:18)"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:15:04:08 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 409 31 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated successfully: crowy@gmail.com","service":"acquisitions-api"}
+{"level":"info","message":"User signed in successfully: crowy@gmail.com","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:15:04:22 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 116 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:15:04:32 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: crowy@gmail.com","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:15:04:36 +0000] \"GET /api/users/ HTTP/1.1\" 403 55 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:15:05:02 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: crowy@gmail.com","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:15:05:17 +0000] \"GET /api/users/2 HTTP/1.1\" 403 72 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: crowy@gmail.com","service":"acquisitions-api"}
+{"level":"info","message":"Retrieved user with id: 1","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:15:05:21 +0000] \"GET /api/users/1 HTTP/1.1\" 200 196 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: crowy@gmail.com","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:15:05:29 +0000] \"DELETE /api/users/1 HTTP/1.1\" 403 102 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:15:05:32 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"-\"","service":"acquisitions-api"}
+{"level":"info","message":"User authenticated: crowy@gmail.com","service":"acquisitions-api"}
+{"level":"info","message":"::ffff:172.18.0.1 - muhammedrefaat2020@gmail.com [21/Sep/2025:15:05:35 +0000] \"DELETE /api/users/2 HTTP/1.1\" 403 70 \"-\" \"PostmanRuntime/7.46.1\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [21/Sep/2025:15:06:03 +0000] \"GET /health HTTP/1.1\" 200 77 \"-\" \"-\"","service":"acquisitions-api"}

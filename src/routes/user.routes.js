@@ -1,10 +1,24 @@
 import express from 'express';
-import { fetchAllUsers } from '#controllers/user.controller.js';
+import {
+  fetchAllUsers,
+  fetchUserById,
+  updateUserById,
+  deleteUserById,
+} from '#controllers/user.controller.js';
+import {
+  authenticateToken,
+  requireAdmin,
+  requireOwnershipOrAdmin,
+} from '#middleware/auth.middleware.js';
 
 const router = express.Router();
-router.get('/', fetchAllUsers);
-router.get('/:id', (req, res) => {});
-router.put('/:id', (req, res) => {});
-router.delete('/:id', (req, res) => {});
+
+router.get('/', authenticateToken, requireAdmin, fetchAllUsers);
+
+router.get('/:id', authenticateToken, requireOwnershipOrAdmin, fetchUserById);
+
+router.put('/:id', authenticateToken, updateUserById);
+
+router.delete('/:id', authenticateToken, deleteUserById);
 
 export default router;

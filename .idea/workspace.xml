@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b36c4490-dadc-47ac-8aea-d8da55049e00" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.development" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.production" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.neon_local/.branches" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/combined.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/combined.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/arcjet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/arcjet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/security.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/security.middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/user.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/user.services.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.services.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validations/auth.validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/validations/auth.validation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +89,7 @@
       <workItem from="1758141787198" duration="2562000" />
       <workItem from="1758204524989" duration="4163000" />
       <workItem from="1758277977253" duration="1186000" />
+      <workItem from="1758465612754" duration="1439000" />
     </task>
     <servers />
   </component>
