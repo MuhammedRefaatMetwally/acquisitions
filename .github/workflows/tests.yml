@@ -1,0 +1,129 @@
+name: Tests
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Run Tests & Coverage
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        id: tests
+        env:
+          NODE_ENV: test
+          NODE_OPTIONS: --experimental-vm-modules
+          DATABASE_URL: ${{ secrets.DATABASE_URL || 'sqlite://test.db' }}
+          ARCJET_ENV: development
+        run: |
+          echo "Running tests with coverage..."
+          if ! npm test -- --coverage --coverageReporters=json-summary --coverageReporters=lcov --coverageReporters=html; then
+            echo "::error::Tests failed. Please check the test output above for details."
+            echo "test_failed=true" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+          echo "✅ All tests passed successfully"
+
+      - name: Generate coverage summary
+        id: coverage
+        if: always()
+        run: |
+          if [ -f coverage/coverage-summary.json ]; then
+            # Extract coverage percentages
+            STATEMENTS=$(cat coverage/coverage-summary.json | jq -r '.total.statements.pct')
+            BRANCHES=$(cat coverage/coverage-summary.json | jq -r '.total.branches.pct')
+            FUNCTIONS=$(cat coverage/coverage-summary.json | jq -r '.total.functions.pct')
+            LINES=$(cat coverage/coverage-summary.json | jq -r '.total.lines.pct')
+            
+            echo "statements_pct=$STATEMENTS" >> $GITHUB_OUTPUT
+            echo "branches_pct=$BRANCHES" >> $GITHUB_OUTPUT
+            echo "functions_pct=$FUNCTIONS" >> $GITHUB_OUTPUT
+            echo "lines_pct=$LINES" >> $GITHUB_OUTPUT
+            echo "coverage_available=true" >> $GITHUB_OUTPUT
+          else
+            echo "coverage_available=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload coverage reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-reports-${{ github.run_id }}
+          path: |
+            coverage/
+            !coverage/tmp/
+          retention-days: 30
+
+      - name: Annotate test failures
+        if: failure() && steps.tests.outputs.test_failed == 'true'
+        run: |
+          echo "::error title=Test Failures::One or more tests failed. Check the logs above for specific failure details."
+          if [ -f coverage/lcov.info ]; then
+            echo "::notice title=Coverage Report::Coverage report generated and uploaded as artifact."
+          fi
+
+      - name: Generate test summary (success)
+        if: success()
+        run: |
+          echo "## ✅ Tests Passed Successfully" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All tests completed successfully! 🎉" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.coverage.outputs.coverage_available }}" == "true" ]; then
+            echo "### 📊 Coverage Report" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "| Metric | Coverage |" >> $GITHUB_STEP_SUMMARY
+            echo "|--------|----------|" >> $GITHUB_STEP_SUMMARY
+            echo "| Statements | ${{ steps.coverage.outputs.statements_pct }}% |" >> $GITHUB_STEP_SUMMARY
+            echo "| Branches | ${{ steps.coverage.outputs.branches_pct }}% |" >> $GITHUB_STEP_SUMMARY
+            echo "| Functions | ${{ steps.coverage.outputs.functions_pct }}% |" >> $GITHUB_STEP_SUMMARY
+            echo "| Lines | ${{ steps.coverage.outputs.lines_pct }}% |" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "### 📁 Artifacts" >> $GITHUB_STEP_SUMMARY
+          echo "- Coverage reports uploaded and available for 30 days" >> $GITHUB_STEP_SUMMARY
+          echo "- HTML coverage report included for detailed analysis" >> $GITHUB_STEP_SUMMARY
+
+      - name: Generate test summary (failure)
+        if: failure()
+        run: |
+          echo "## ❌ Tests Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Some tests did not pass. Please review the test output above." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.coverage.outputs.coverage_available }}" == "true" ]; then
+            echo "### 📊 Coverage Report" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "| Metric | Coverage |" >> $GITHUB_STEP_SUMMARY
+            echo "|--------|----------|" >> $GITHUB_STEP_SUMMARY
+            echo "| Statements | ${{ steps.coverage.outputs.statements_pct }}% |" >> $GITHUB_STEP_SUMMARY
+            echo "| Branches | ${{ steps.coverage.outputs.branches_pct }}% |" >> $GITHUB_STEP_SUMMARY
+            echo "| Functions | ${{ steps.coverage.outputs.functions_pct }}% |" >> $GITHUB_STEP_SUMMARY
+            echo "| Lines | ${{ steps.coverage.outputs.lines_pct }}% |" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "### 🔧 Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "1. Review the failed tests in the logs above" >> $GITHUB_STEP_SUMMARY
+          echo "2. Fix the failing tests locally" >> $GITHUB_STEP_SUMMARY
+          echo "3. Run \`npm test\` locally to verify fixes" >> $GITHUB_STEP_SUMMARY
+          echo "4. Push your changes to trigger the workflow again" >> $GITHUB_STEP_SUMMARY
